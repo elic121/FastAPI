@@ -1,0 +1,52 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('./assets/background.jpg') center/cover no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1, a {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+h1:hover, a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1, a {
+    animation: fadeIn 1s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    border-bottom: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
