@@ -1,0 +1,42 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>It is a test!</title>
+    <link rel="stylesheet" href="./static/styles.css" />
+  </head>
+  <body>
+    <div class="button-container">
+      <a href="{{ url_for('friend_get') }}" target="_blank" class="button">
+        <h1>Server Side Rendering</h1>
+      </a>
+      <a href="{{ url_for('friend_get') }}" target="_blank" class="button">
+        <h1>친구 목록</h1>
+      </a>
+      <a href="{{ url_for('friend_get') }}" target="_blank" class="button">
+        <h1>{{ title }}</h1>
+      </a>
+      <span id="real-time"></span>
+    </div>
+
+    <!-- 실시간으로 시간을 표시하는 스크립트 -->
+    <script>
+      function updateTime() {
+        const currentTime = new Date();
+        const hours = currentTime.getHours().toString().padStart(2, "0");
+        const minutes = currentTime.getMinutes().toString().padStart(2, "0");
+        const seconds = currentTime.getSeconds().toString().padStart(2, "0");
+
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+        document.getElementById("real-time").innerText = formattedTime;
+      }
+
+      // 1초마다 updateTime 함수 호출
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
