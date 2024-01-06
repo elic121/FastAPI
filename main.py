@@ -25,7 +25,7 @@ templates = Jinja2Templates(directory="templates")
 
 
 async def get_title():
-    return str(datetime.datetime.now())
+    return ''.join(str(datetime.datetime.now()).split('.')[:-1])
 
 
 @app.get("/")
@@ -37,10 +37,10 @@ async def root(request: Request, title: str = Depends(get_title)):
 
 if __name__ == "__main__":
     import uvicorn
-
+    print(os.getenv("RELOAD", 11))
     uvicorn.run(
         "main:app",
-        host=str(os.getenv("HOST", "0.0.0.0")),
-        port=int(os.getenv("PORT", 80)),
-        reload=bool(os.getenv("RELOAD", True)),
+        host=str(os.getenv("HOST", "127.0.0.1")),
+        port=int(os.getenv("PORT", 8000)),
+        reload=True,
     )
